@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#635bff">
+    <title>QazPhone — смартфондар дүкені</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="ayan.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     AUTH
+===================================================== -->
+
+<div id="authScreen" class="auth-screen">
+
+    <div class="auth-decoration decoration-one"></div>
+    <div class="auth-decoration decoration-two"></div>
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            <div class="logo-icon">Q</div>
+            <div>
+                <strong>QazPhone</strong>
+                <span>Смартфондар дүкені</span>
+            </div>
+        </div>
+
+        <!-- REGISTER -->
+        <div id="registerView">
+
+            <div class="auth-heading">
+                <h1>Тіркелу</h1>
+                <p>Жеке кабинетіңізді бірнеше секундта жасаңыз</p>
+            </div>
+
+            <form id="registerForm">
+
+                <div class="form-group">
+                    <label>Аты-жөні</label>
+                    <input
+                        type="text"
+                        id="registerName"
+                        placeholder="Атыңыз бен тегіңіз"
+                        autocomplete="name"
+                    >
+                    <small class="error-message"></small>
+                </div>
+
+                <div class="form-group">
+                    <label>Электрондық пошта</label>
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        placeholder="example@mail.kz"
+                        autocomplete="email"
+                    >
+                    <small class="error-message"></small>
+                </div>
+
+                <div class="form-group">
+                    <label>Телефон нөмірі</label>
+                    <input
+                        type="tel"
+                        id="registerPhone"
+                        placeholder="+7 700 000 00 00"
+                        autocomplete="tel"
+                    >
+                    <small class="error-message"></small>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Құпия сөз</label>
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="••••••••"
+                            autocomplete="new-password"
+                        >
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Құпия сөзді қайталаңыз</label>
+                        <input
+                            type="password"
+                            id="registerPasswordRepeat"
+                            placeholder="••••••••"
+                            autocomplete="new-password"
+                        >
+                        <small class="error-message"></small>
+                    </div>
+
+                </div>
+
+                <button class="primary-button auth-button" type="submit">
+                    Тіркелу
+                </button>
+
+            </form>
+
+            <div class="auth-switch">
+                Аккаунтыңыз бар ма?
+                <button type="button" id="showLogin">Кіру</button>
+            </div>
+
+        </div>
+
+        <!-- LOGIN -->
+        <div id="loginView" class="hidden">
+
+            <div class="auth-heading">
+                <h1>Қайта қош келдіңіз!</h1>
+                <p>Аккаунтыңызға кіріңіз</p>
+            </div>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+                    <label>Электрондық пошта</label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="example@mail.kz"
+                    >
+                    <small class="error-message"></small>
+                </div>
+
+                <div class="form-group">
+                    <label>Құпия сөз</label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="••••••••"
+                    >
+                    <small class="error-message"></small>
+                </div>
+
+                <div class="forgot-password">
+                    <button type="button" id="forgotPassword">
+                        Құпия сөзіңізді ұмыттыңыз ба?
+                    </button>
+                </div>
+
+                <button class="primary-button auth-button" type="submit">
+                    Кіру
+                </button>
+
+            </form>
+
+            <div class="auth-switch">
+                Аккаунтыңыз жоқ па?
+                <button type="button" id="showRegister">Тіркелу</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =====================================================
+     APPLICATION
+===================================================== -->
+
+<div id="app" class="app hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="logo-icon">Q</div>
+            <div>
+                <strong>QazPhone</strong>
+                <span>Басқару панелі</span>
+            </div>
+        </div>
+
+        <div class="sidebar-menu">
+
+            <div class="menu-title">НЕГІЗГІ</div>
+
+            <button class="menu-item active" data-section="dashboard">
+                <span class="menu-icon">⌂</span>
+                <span>Басты бет</span>
+            </button>
+
+            <button class="menu-item" data-section="products">
+                <span class="menu-icon">▣</span>
+                <span>Телефондар</span>
+            </button>
+
+            <button class="menu-item" data-section="posts">
+                <span class="menu-icon">▤</span>
+                <span>Жаңалықтар</span>
+            </button>
+
+            <button class="menu-item" data-section="media">
+                <span class="menu-icon">▧</span>
+                <span>Медиа</span>
+            </button>
+
+            <button class="menu-item" data-section="pages">
+                <span class="menu-icon">▥</span>
+                <span>Беттер</span>
+            </button>
+
+            <div class="menu-title">БАСҚАРУ</div>
+
+            <button class="menu-item" data-section="comments">
+                <span class="menu-icon">◌</span>
+                <span>Пікірлер</span>
+                <span class="menu-badge">3</span>
+            </button>
+
+            <button class="menu-item" data-section="appearance">
+                <span class="menu-icon">◐</span>
+                <span>Дизайн</span>
+            </button>
+
+            <button class="menu-item" data-section="plugins">
+                <span class="menu-icon">◇</span>
+                <span>Қосымшалар</span>
+            </button>
+
+            <button class="menu-item" data-section="users">
+                <span class="menu-icon">♙</span>
+                <span>Пайдаланушылар</span>
+            </button>
+
+            <button class="menu-item" data-section="settings">
+                <span class="menu-icon">⚙</span>
+                <span>Баптаулар</span>
+            </button>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-user">
+                <div class="avatar" id="sidebarAvatar">A</div>
+                <div class="sidebar-user-info">
+                    <strong id="sidebarUserName">Әкімші</strong>
+                    <span>Әкімші</span>
+                </div>
+            </div>
+
+            <button class="logout-button" id="logoutButton">
+                <span>↪</span>
+                Шығу
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+                <button class="mobile-menu-button" id="mobileMenuButton">☰</button>
+
+                <div>
+                    <div class="breadcrumb">
+                        Басқару панелі <span>/</span>
+                        <strong id="currentSectionName">Басты бет</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+
+                <button class="topbar-icon-button" id="themeButton" title="Тақырып">
+                    ☼
+                </button>
+
+                <button class="topbar-icon-button notification-button" id="notificationButton">
+                    ♢
+                    <span></span>
+                </button>
+
+                <div class="topbar-user">
+                    <div class="avatar" id="topAvatar">A</div>
+                    <div>
+                        <strong id="topUserName">Әкімші</strong>
+                        <span>Әкімші</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <div class="content" id="content"></div>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div class="modal-overlay hidden" id="modalOverlay">
+
+    <div class="modal" id="modal">
+
+        <button class="modal-close" id="modalClose">×</button>
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+<div id="toastContainer"></div>
+
+
+<script src="ayan.js"></script>
+<script src="ayan.js"></script>
+
+</body>
+</html>
